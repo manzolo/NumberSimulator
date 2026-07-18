@@ -296,8 +296,11 @@ textarea.code {
 .bitgrid-host { min-height: 220px; padding: 0.8rem; display: flex; }
 .bg { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; align-items: flex-start; justify-content: center; font-family: var(--mono); }
 .bg-inputs { display: flex; flex-direction: column; gap: 0.15rem; }
-.bg-in-row { font-size: 0.8rem; color: var(--phosphor-dim); display: flex; gap: 0.6rem; }
+.bg-in-row { font-size: 0.8rem; color: var(--phosphor-dim); display: flex; align-items: center; gap: 0.6rem; }
 .bg-in-label { flex: none; min-width: 3.2rem; color: var(--ink-soft); }
+.bg-in-badge { flex: none; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--screen); background: var(--phosphor); border-radius: 5px; padding: 0.1rem 0.42rem;
+  box-shadow: 0 0 8px rgb(87 227 137 / 0.35), inset 0 -1px 0 rgb(0 0 0 / 0.25); }
 .bg-in-val { color: var(--phosphor-soft); letter-spacing: 0.05em; }
 
 .bg-strip { display: flex; flex-wrap: wrap; gap: 0.28rem; }

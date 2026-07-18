@@ -8,6 +8,10 @@
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
+// A short, punchy name for a numeral base — shown as a badge in the input echo.
+const BASE_NAMES = { 2: 'BIN', 8: 'OCT', 10: 'DEC', 16: 'HEX' };
+const baseName = (n) => BASE_NAMES[n] ?? `BASE ${n}`;
+
 export function createBitGrid(container) {
   container.innerHTML = `
     <div class="bg">
@@ -45,7 +49,12 @@ export function createBitGrid(container) {
     for (const s of evt.show ?? []) {
       const row = document.createElement('div');
       row.className = 'bg-in-row';
-      row.innerHTML = `<span class="bg-in-label">${esc(s.label)}</span><span class="bg-in-val">${esc(s.text)}</span>`;
+      // a base conversion (`from <base>`) shows its base as a phosphor badge
+      // rather than a bland "base 16" label.
+      const m = /^base (\d+)$/.exec(s.label);
+      row.innerHTML = m
+        ? `<span class="bg-in-badge">${esc(baseName(+m[1]))}</span><span class="bg-in-val">${esc(s.text)}</span>`
+        : `<span class="bg-in-label">${esc(s.label)}</span><span class="bg-in-val">${esc(s.text)}</span>`;
       inputsEl.appendChild(row);
     }
 
