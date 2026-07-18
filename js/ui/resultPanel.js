@@ -20,6 +20,18 @@ export function createResultPanel(container) {
     return groupBits(bits, 4).map((g) => g.join('')).join(' ');
   }
 
+  // A base conversion, read every common way at once: the same value in binary,
+  // octal, decimal and hex, each with its badge, the primary reading highlighted.
+  const CONV_BASES = [[2, 'BIN'], [8, 'OCT'], [10, 'DEC'], [16, 'HEX']];
+  function convBlock(value, highlight) {
+    const rows = CONV_BASES.map(([b, name]) => {
+      const digits = b === 10 ? String(value) : formatBase(value, b).toUpperCase();
+      const hl = b === highlight ? ' hl' : '';
+      return `<div class="conv-row${hl}"><span class="conv-badge">${name}</span><span class="conv-digits">${esc(digits)}</span></div>`;
+    }).join('');
+    return `<div class="conv">${rows}</div>`;
+  }
+
   function render() {
     if (!answer) { container.innerHTML = `<div class="tbl-empty">${t('resultEmpty')}</div>`; return; }
     const a = answer;
@@ -32,10 +44,9 @@ export function createResultPanel(container) {
       chips.push(chip(t('statHex'), formatBase(bitsToUnsigned(a.bits), 16).toUpperCase().padStart(Math.ceil(a.bits.length / 4), '0')));
       if (a.carryOut !== undefined) chips.push(chip(t('statCarry'), a.carryOut, a.carryOut ? 'warn' : ''));
     } else if (a.kind === 'to') {
-      chips.push(chip(`${t('statBase')} ${a.base}`, String(a.text).toUpperCase()));
+      chips.push(convBlock(a.value, a.base));
     } else if (a.kind === 'value') {
-      chips.push(chip(t('statDecimal'), a.value));
-      chips.push(chip(t('statHex'), formatBase(a.value, 16).toUpperCase()));
+      chips.push(convBlock(a.value, 10));
     } else if (a.kind === 'fixed') {
       chips.push(chip(t('statPattern'), a.text));
       chips.push(chip(t('statValue'), a.value));

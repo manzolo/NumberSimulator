@@ -303,6 +303,17 @@ textarea.code {
   box-shadow: 0 0 8px rgb(87 227 137 / 0.35), inset 0 -1px 0 rgb(0 0 0 / 0.25); }
 .bg-in-val { color: var(--phosphor-soft); letter-spacing: 0.05em; }
 
+/* base-conversion result: the same value across bases, each with its badge */
+.conv { display: flex; flex-direction: column; gap: 0.35rem; width: 100%; padding: 0.15rem 0; }
+.conv-row { display: flex; align-items: center; gap: 0.6rem; }
+.conv-badge { flex: none; min-width: 2.6rem; text-align: center; font-family: var(--mono); font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.1em; color: var(--screen); background: var(--phosphor-dim);
+  border-radius: 5px; padding: 0.12rem 0.42rem; }
+.conv-digits { font-family: var(--mono); font-size: 1.05rem; font-weight: 700; color: var(--ink);
+  letter-spacing: 0.06em; word-break: break-all; }
+.conv-row.hl .conv-badge { background: var(--phosphor); box-shadow: 0 0 8px rgb(87 227 137 / 0.4), inset 0 -1px 0 rgb(0 0 0 / 0.25); }
+.conv-row.hl .conv-digits { color: var(--phosphor); }
+
 .bg-strip { display: flex; flex-wrap: wrap; gap: 0.28rem; }
 .bg-weights { }
 .bg-weight { width: 1.9rem; text-align: center; font-size: 0.56rem; color: var(--ink-soft); }

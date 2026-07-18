@@ -93,12 +93,13 @@ export class NumExecutor {
   * _op_to() {
     const base = this.cmd.base;
     let v = this._needNonNeg(this.vals[0]);
+    const value = v; // the decimal value, for the multi-base result readout
     this._emit({ type: 'input', op: 'to', width: null, base, show: [{ label: 'dec', text: String(v) }] });
     yield;
     if (v === 0) {
       this._emit({ type: 'digit', pos: 0, char: '0' });
       yield;
-      return this._finish({ kind: 'to', base, text: '0' }, '0');
+      return this._finish({ kind: 'to', base, text: '0', value }, '0');
     }
     const rem = [];
     while (v > 0) {
@@ -111,7 +112,7 @@ export class NumExecutor {
     }
     const text = rem.reverse().join('');
     for (let i = 0; i < text.length; i++) { this._emit({ type: 'digit', pos: i, char: text[i] }); yield; }
-    this._finish({ kind: 'to', base, text }, text);
+    this._finish({ kind: 'to', base, text, value }, text);
   }
 
   // ---- from <base> <digits> : positional expansion ------------------------
