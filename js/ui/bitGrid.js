@@ -126,7 +126,7 @@ export function createBitGrid(container) {
       d.className = 'bg-digit';
       digitsEl.appendChild(d);
     }
-    d.textContent = char;
+    d.textContent = String(char).toUpperCase();
     d.classList.remove('pulse');
     void d.offsetWidth;
     d.classList.add('pulse');
@@ -174,7 +174,7 @@ export function createBitGrid(container) {
         }
       } else if (answer.text) {
         digitsEl.hidden = false;
-        digitsEl.innerHTML = [...String(answer.text)].map((ch) => `<span class="bg-digit">${esc(ch)}</span>`).join('');
+        digitsEl.innerHTML = [...String(answer.text).toUpperCase()].map((ch) => `<span class="bg-digit">${esc(ch)}</span>`).join('');
       }
       cells.forEach((c) => c.classList.remove('cursor'));
     },

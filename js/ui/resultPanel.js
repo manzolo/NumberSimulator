@@ -32,7 +32,7 @@ export function createResultPanel(container) {
       chips.push(chip(t('statHex'), formatBase(bitsToUnsigned(a.bits), 16).toUpperCase().padStart(Math.ceil(a.bits.length / 4), '0')));
       if (a.carryOut !== undefined) chips.push(chip(t('statCarry'), a.carryOut, a.carryOut ? 'warn' : ''));
     } else if (a.kind === 'to') {
-      chips.push(chip(`${t('statBase')} ${a.base}`, a.text));
+      chips.push(chip(`${t('statBase')} ${a.base}`, String(a.text).toUpperCase()));
     } else if (a.kind === 'value') {
       chips.push(chip(t('statDecimal'), a.value));
       chips.push(chip(t('statHex'), formatBase(a.value, 16).toUpperCase()));
