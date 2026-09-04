@@ -19,8 +19,9 @@ guarda ogni byte trasformarsi: qui si guarda ogni bit nascere.
 [EDU-REGEX](https://github.com/manzolo/RegexSimulator),
 [EDU-SQL](https://github.com/manzolo/SqlSimulator),
 [EDU-BRANCH](https://github.com/manzolo/GitBranchingSimulator),
-[EDU-CRYPTO](https://github.com/manzolo/CryptoSimulator) e
-[EDU-NN](https://github.com/manzolo/NeuralSimulator).
+[EDU-CRYPTO](https://github.com/manzolo/CryptoSimulator),
+[EDU-NN](https://github.com/manzolo/NeuralSimulator) e
+[EDU-ELN](https://github.com/manzolo/ElectronicsSimulator).
 
 ## Perché un motore scritto a mano
 

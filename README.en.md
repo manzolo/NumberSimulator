@@ -19,8 +19,9 @@ It is a sibling of the EDU-* collection, alongside
 [EDU-REGEX](https://github.com/manzolo/RegexSimulator),
 [EDU-SQL](https://github.com/manzolo/SqlSimulator),
 [EDU-BRANCH](https://github.com/manzolo/GitBranchingSimulator),
-[EDU-CRYPTO](https://github.com/manzolo/CryptoSimulator) and
-[EDU-NN](https://github.com/manzolo/NeuralSimulator).
+[EDU-CRYPTO](https://github.com/manzolo/CryptoSimulator),
+[EDU-NN](https://github.com/manzolo/NeuralSimulator) and
+[EDU-ELN](https://github.com/manzolo/ElectronicsSimulator).
 
 ## Why a hand-written engine
 
